@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Ankita Kumari | Full-Stack Developer</title>
+<meta name="description" content="Portfolio of Ankita Kumari, final-year B.Tech CSE student, full-stack developer and GATE 2026 qualified.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;800&family=Public+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #ECEFE8;
+    --surface: #F7F8F4;
+    --ink: #1E2B22;
+    --muted: #4F5E52;
+    --line: #C4CCBE;
+    --olive: #3E5230;
+    --link: #365A2C;
+    --accent: #D9861A;
+    --accent-ink: #1E2B22;
+    --hero-bg: #1E2B22;
+    --hero-ink: #ECEFE8;
+    --hero-muted: #B5C0B3;
+    --display: "Big Shoulders Display", "Arial Narrow", "Helvetica Neue", Arial, sans-serif;
+    --body: "Public Sans", "Segoe UI", system-ui, -apple-system, Roboto, Arial, sans-serif;
+    box-sizing: border-box;
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #141B16;
+      --surface: #1B241E;
+      --ink: #E6EBE1;
+      --muted: #A5B2A6;
+      --line: #2D3A31;
+      --olive: #A9BD84;
+      --link: #B7CC8A;
+      --hero-bg: #0F1611;
+    }
+  }
+  :root[data-theme="dark"] {
+    --bg: #141B16;
+    --surface: #1B241E;
+    --ink: #E6EBE1;
+    --muted: #A5B2A6;
+    --line: #2D3A31;
+    --olive: #A9BD84;
+    --link: #B7CC8A;
+    --hero-bg: #0F1611;
+  }
+
+  html { scroll-padding-top: calc(env(safe-area-inset-top, 0px) + 64px); scroll-behavior: smooth; }
+  *, *::before, *::after { box-sizing: inherit; }
+  body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--ink);
+    font-family: var(--body);
+    font-size: 1.0625rem;
+    line-height: 1.65;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: var(--link); text-underline-offset: 3px; }
+  a:hover { text-decoration-thickness: 2px; }
+  :focus-visible { outline: 3px solid var(--accent); outline-offset: 3px; border-radius: 2px; }
+  h1, h2, h3 { margin: 0; font-family: var(--display); font-weight: 800; line-height: 1; }
+  p { margin: 0 0 1em; max-width: 62ch; }
+  ul { margin: 0; padding: 0; list-style: none; }
+
+  .wrap { width: 100%; max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+
+  /* Header */
+  .site-header {
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+    z-index: 10;
+    background: var(--hero-bg);
+    color: var(--hero-ink);
+    border-bottom: 3px solid var(--accent);
+  }
+  .site-header .wrap { display: flex; align-items: center; gap: 24px; min-height: 56px; }
+  .brand { font-family: var(--display); font-weight: 800; font-size: 1.4rem; letter-spacing: .02em; color: var(--hero-ink); text-decoration: none; white-space: nowrap; }
+  .site-nav { margin-left: auto; overflow-x: auto; scrollbar-width: none; }
+  .site-nav::-webkit-scrollbar { display: none; }
+  .site-nav ul { display: flex; gap: 4px; }
+  .site-nav a { display: block; padding: 16px 10px; color: var(--hero-muted); text-decoration: none; font-size: .95rem; font-weight: 500; white-space: nowrap; }
+  .site-nav a:hover { color: var(--hero-ink); }
+  @media (max-width: 640px) { .brand { display: none; } .site-nav { margin-left: 0; } }
+
+  /* Hero */
+  .hero { background: var(--hero-bg); color: var(--hero-ink); padding: clamp(56px, 10vw, 120px) 0 clamp(48px, 8vw, 96px); }
+  .hero h1 {
+    font-size: clamp(4rem, 16vw, 11.5rem);
+    line-height: .86;
+    text-transform: uppercase;
+    letter-spacing: -.01em;
+    overflow-wrap: anywhere;
+  }
+  .hero-body { display: grid; gap: 40px; margin-top: clamp(32px, 5vw, 56px); grid-template-columns: 1fr; }
+  @media (min-width: 820px) { .hero-body { grid-template-columns: 1.3fr 1fr; align-items: end; gap: 64px; } }
+  .hero-lead { border-left: 4px solid var(--accent); padding-left: 20px; }
+  .hero-lead p { font-size: clamp(1.15rem, 2.4vw, 1.45rem); line-height: 1.45; color: var(--hero-ink); max-width: 34ch; margin: 0; }
+  .hero-facts { border-top: 1px solid rgba(236,239,232,.25); }
+  .hero-facts div { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(236,239,232,.25); font-size: .98rem; }
+  .hero-facts dt { color: var(--hero-muted); }
+  .hero-facts dd { margin: 0; text-align: right; font-weight: 600; }
+  .hero-facts { margin: 0; }
+  .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 36px; }
+  .btn { display: inline-block; padding: 13px 22px; border-radius: 4px; font-weight: 600; font-size: 1rem; text-decoration: none; border: 2px solid transparent; }
+  button.btn { font-family: inherit; cursor: pointer; background: transparent; line-height: inherit; }
+  .btn-primary { background: var(--accent); color: var(--accent-ink); }
+  .btn-primary:hover { filter: brightness(1.08); }
+  .btn-ghost { border-color: rgba(236,239,232,.5); color: var(--hero-ink); }
+  .btn-ghost:hover { border-color: var(--hero-ink); }
+
+  /* Sections */
+  section.block { padding: clamp(56px, 8vw, 104px) 0; border-bottom: 1px solid var(--line); }
+  .block-grid { display: grid; grid-template-columns: 1fr; gap: 28px; }
+  @media (min-width: 820px) { .block-grid { grid-template-columns: 240px 1fr; gap: 64px; } }
+  .block h2 { font-size: clamp(2.2rem, 5vw, 3.2rem); }
+  .block-head { align-self: start; }
+  @media (min-width: 820px) { .block-head { position: sticky; top: calc(env(safe-area-inset-top, 0px) + 88px); } }
+  .lede { font-size: 1.18rem; line-height: 1.6; }
+
+  /* About */
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+  /* Skills */
+  .skills { border-top: 1px solid var(--line); }
+  .skills > div { display: grid; grid-template-columns: 1fr; gap: 4px; padding: 16px 0; border-bottom: 1px solid var(--line); }
+  @media (min-width: 620px) { .skills > div { grid-template-columns: 180px 1fr; gap: 24px; } }
+  .skills dt { font-family: var(--display); font-weight: 800; font-size: 1.35rem; }
+  .skills dd { margin: 0; }
+  .skills { margin: 0; }
+
+  /* Projects */
+  .project { padding: 32px 0; border-top: 1px solid var(--line); }
+  .project:first-child { border-top: 2px solid var(--ink); padding-top: 28px; }
+  .project-top { display: flex; flex-wrap: wrap; align-items: baseline; gap: 8px 16px; }
+  .project h3 { font-size: clamp(1.7rem, 3.4vw, 2.2rem); }
+  .status { font-size: .85rem; font-weight: 600; padding: 2px 10px; border-radius: 4px; background: var(--accent); color: var(--accent-ink); }
+  .project .kind { color: var(--muted); margin: 6px 0 14px; }
+  .tags { display: flex; flex-wrap: wrap; gap: 8px; margin: 0 0 16px; }
+  .tags li { font-size: .88rem; padding: 3px 10px; border: 1px solid var(--line); background: var(--surface); border-radius: 4px; }
+  .project ul.points { display: grid; gap: 10px; max-width: 64ch; }
+  .points li { position: relative; padding-left: 20px; }
+  .points li::before { content: ""; position: absolute; left: 0; top: .75em; width: 8px; height: 2px; background: var(--accent); }
+
+  .project-links { margin-top: 20px; }
+  .btn-outline { border-color: var(--ink); color: var(--ink); padding: 9px 18px; font-size: .95rem; }
+  .btn-outline:hover { background: var(--ink); color: var(--bg); }
+  .resume-status { min-height: 1.5em; margin: 14px 0 0; font-size: .95rem; color: var(--hero-muted); }
+
+  /* Timeline */
+  .timeline { position: relative; }
+  .timeline::before { content: ""; position: absolute; left: 6px; top: 8px; bottom: 8px; width: 2px; background: var(--line); }
+  .role { position: relative; padding: 0 0 40px 36px; }
+  .role:last-child { padding-bottom: 0; }
+  .role::before { content: ""; position: absolute; left: 0; top: 8px; width: 14px; height: 14px; border-radius: 50%; background: var(--accent); border: 3px solid var(--bg); box-shadow: 0 0 0 2px var(--olive); }
+  .role h3 { font-size: 1.7rem; }
+  .role .org { font-weight: 600; margin: 6px 0 2px; }
+  .role .when { color: var(--muted); margin: 0 0 12px; font-size: .95rem; }
+
+  /* Education */
+  .edu { display: grid; gap: 28px; }
+  .edu article { border-left: 4px solid var(--olive); padding-left: 20px; }
+  .edu h3 { font-size: 1.6rem; }
+  .edu p { margin: 6px 0 0; }
+  .edu .when { color: var(--muted); }
+
+  /* Achievements */
+  .two-lists { display: grid; gap: 40px; grid-template-columns: 1fr; }
+  @media (min-width: 700px) { .two-lists { grid-template-columns: 1fr 1fr; } }
+  .two-lists h3 { font-size: 1.5rem; margin-bottom: 14px; }
+  .plain-list { border-top: 1px solid var(--line); }
+  .plain-list li { padding: 12px 0; border-bottom: 1px solid var(--line); }
+  .plain-list small { display: block; color: var(--muted); font-size: .9rem; }
+  .plain-list .top { font-weight: 600; }
+
+  /* Contact */
+  .contact { background: var(--hero-bg); color: var(--hero-ink); padding: clamp(64px, 9vw, 120px) 0; }
+  .contact h2 { font-size: clamp(2.6rem, 8vw, 5.5rem); margin-bottom: 20px; }
+  .contact p { color: var(--hero-muted); font-size: 1.15rem; }
+  .contact a { color: var(--hero-ink); }
+  .mail { display: inline-block; font-family: var(--display); font-weight: 800; font-size: clamp(1.4rem, 5.6vw, 3rem); line-height: 1.1; overflow-wrap: anywhere; margin: 8px 0 32px; text-decoration-color: var(--accent); text-decoration-thickness: 3px; text-underline-offset: 6px; }
+  .contact-list { display: grid; gap: 0; max-width: 480px; border-top: 1px solid rgba(236,239,232,.25); }
+  .contact-list li { display: flex; justify-content: space-between; gap: 16px; padding: 12px 0; border-bottom: 1px solid rgba(236,239,232,.25); }
+  .contact-list span { color: var(--hero-muted); }
+
+  footer { background: var(--hero-bg); color: var(--hero-muted); padding: 20px 0 28px; font-size: .9rem; border-top: 1px solid rgba(236,239,232,.15); }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="wrap">
+    <a class="brand" href="#top">Ankita Kumari</a>
+    <nav class="site-nav" aria-label="Sections">
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#education">Education</a></li>
+        <li><a href="#achievements">Achievements</a></li>
+        <li><a href="#contact">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main id="top">
+  <section class="hero" aria-label="Introduction">
+    <div class="wrap">
+      <h1>Ankita Kumari</h1>
+      <div class="hero-body">
+        <div>
+          <div class="hero-lead">
+            <p>I build full-stack web apps and I'm learning to make machine learning work on real problems.</p>
+          </div>
+          <div class="hero-actions">
+            <a class="btn btn-primary" href="#contact">Get in touch</a>
+            <button type="button" class="btn btn-ghost" data-resume>Download resume</button>
+            <a class="btn btn-ghost" href="https://github.com/ankita-kumari12" target="_blank" rel="noopener">GitHub</a>
+            <a class="btn btn-ghost" href="https://www.linkedin.com/in/ankita-kumari-7383782b4" target="_blank" rel="noopener">LinkedIn</a>
+          </div>
+        </div>
+        <dl class="hero-facts">
+          <div><dt>Studying</dt><dd>B.Tech, Computer Science and Engineering</dd></div>
+          <div><dt>Graduating</dt><dd>2027, final year</dd></div>
+          <div><dt>CGPA</dt><dd>8.70 / 10</dd></div>
+          <div><dt>GATE</dt><dd>2026 qualified, first attempt</dd></div>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="about">
+    <div class="wrap block-grid">
+      <div class="block-head"><h2>About me</h2></div>
+      <div>
+        <p class="lede">I'm a final-year Computer Science and Engineering student at Purnea College of Engineering, under Bihar Engineering University. I'm in my 6th semester, and I'll graduate in 2027.</p>
+        <p>I learned full-stack development through an Internshala training and put it to use in my college complaint management system. I also completed a machine learning internship with the Microsoft Edunet Foundation and AICTE, and I qualified GATE 2026 in my first attempt, in my third year.</p>
+        <p>I grew up as an army kid, which meant moving to new places every few years. That gave me real experience of living away from home, and the ability to adapt to new things and make the best of them. Army life also taught me discipline and punctuality, and I'm strict about both. It shows in how I plan my work and how I meet my deadlines.</p>
+        <p>My home is Purnia, Bihar.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="skills">
+    <div class="wrap block-grid">
+      <div class="block-head"><h2>Skills</h2></div>
+      <dl class="skills">
+        <div><dt>Languages</dt><dd>C/C++, Python, JavaScript, Java</dd></div>
+        <div><dt>Frontend</dt><dd>React.js, HTML, CSS, Bootstrap</dd></div>
+        <div><dt>Backend</dt><dd>Node.js, Express.js, PHP, REST APIs</dd></div>
+        <div><dt>Database</dt><dd>MySQL (DBMS)</dd></div>
+        <div><dt>Tools</dt><dd>GitHub, Vercel, Google Colab</dd></div>
+        <div><dt>Machine learning</dt><dd>Pandas, Scikit-learn, Linear Regression, SVM, Random Forest, Ensemble Stacking</dd></div>
+      </dl>
+    </div>
+  </section>
+
+  <section class="block" id="projects">
+    <div class="wrap block-grid">
+      <div class="block-head"><h2>Projects</h2></div>
+      <div>
+        <article class="project">
+          <div class="project-top"><h3>College Complaint Management System</h3></div>
+          <p class="kind">Full-stack web application</p>
+          <ul class="tags" aria-label="Tech stack">
+            <li>PHP</li><li>MySQL</li><li>JavaScript</li><li>Bootstrap</li><li>HTML5</li><li>CSS3</li>
+          </ul>
+          <ul class="points">
+            <li>Built a central complaint portal where students submit complaints online, replacing the manual process with automatic tracking.</li>
+            <li>Added secure login for students and admins in PHP, so complaint records stay private and access depends on role.</li>
+            <li>Designed a responsive dashboard with Bootstrap and MySQL that follows each complaint from submission to status updates and final resolution.</li>
+          </ul>
+          <div class="project-links"><a class="btn btn-outline" href="https://github.com/ankita-kumari12" target="_blank" rel="noopener">View on GitHub</a></div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><h3>AI-Based Games</h3></div>
+          <p class="kind">Connect Four and Dots and Boxes</p>
+          <ul class="tags" aria-label="Tech stack">
+            <li>Python</li><li>Pygame</li><li>Minimax</li><li>Alpha-Beta Pruning</li>
+          </ul>
+          <ul class="points">
+            <li>Built playable Connect Four and Dots and Boxes games in Python and Pygame, with AI-based decision-making.</li>
+            <li>Used Minimax with Alpha-Beta Pruning and game-state evaluation so the AI picks strategic moves at different difficulty levels.</li>
+          </ul>
+          <div class="project-links"><a class="btn btn-outline" href="https://github.com/ankita-kumari12" target="_blank" rel="noopener">View on GitHub</a></div>
+        </article>
+
+        <article class="project">
+          <div class="project-top"><h3>Cyberbullying Detection System</h3><span class="status">In progress</span></div>
+          <p class="kind">Ongoing work with our Head of Department</p>
+          <ul class="points">
+            <li>We are building a system to detect cyberbullying. It isn't published yet, and we're still developing it.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="experience">
+    <div class="wrap block-grid">
+      <div class="block-head"><h2>Experience</h2></div>
+      <div class="timeline">
+        <article class="role">
+          <h3>Machine Learning Intern</h3>
+          <p class="org">Microsoft Edunet Foundation, AICTE</p>
+          <p class="when">April to May 2025, 4 weeks</p>
+          <ul class="points">
+            <li>Studied the foundations of artificial intelligence, with hands-on work in data preprocessing, model fundamentals and real-world AI use cases.</li>
+            <li>Built prototype models to learn supervised learning workflows, evaluation techniques and Python-based ML pipelines.</li>
+          </ul>
+        </article>
+        <article class="role">
+          <h3>Web Development Trainee</h3>
+          <p class="org">Internshala</p>
+          <p class="when">March to May 2025, 8 weeks</p>
+          <ul class="points">
+            <li>Completed an intensive web development training covering front-end and back-end work with HTML5, CSS3, Bootstrap, JavaScript and React.</li>
+            <li>Built a strong base in database management with DBMS and PHP, and used it to create dynamic, data-driven web applications.</li>
+          </ul>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="education">
+    <div class="wrap block-grid">
+      <div class="block-head"><h2>Education</h2></div>
+      <div class="edu">
+        <article>
+          <h3>B.Tech in Computer Science and Engineering</h3>
+          <p>Purnea College of Engineering, Purnea, under Bihar Engineering University</p>
+          <p class="when">2023 to 2027, currently in 6th semester. CGPA 8.70 / 10</p>
+        </article>
+        <article>
+          <h3>Class X and XII, CBSE</h3>
+          <p>Army Public School, Ballygunge, Kolkata</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="achievements">
+    <div class="wrap block-grid">
+      <div class="block-head"><h2>Achievements and certifications</h2></div>
+      <div>
+        <div class="two-lists">
+          <div>
+            <h3>Achievements</h3>
+            <ul class="plain-list">
+              <li><span class="top">Qualified GATE 2026</span><small>In my first attempt, while still in third year</small></li>
+              <li><span class="top">Table tennis winner</span><small>Represented my college at a district-level competition and won</small></li>
+              <li><span class="top">Aptitude and reasoning quiz</span><small>Certificate earned in first year</small></li>
+            </ul>
+          </div>
+          <div>
+            <h3>Certifications</h3>
+            <ul class="plain-list">
+              <li><span class="top">Web Development</span><small>Internshala</small></li>
+              <li><span class="top">Python</span><small>NPTEL</small></li>
+              <li><span class="top">Object Oriented Programming</span><small>NPTEL</small></li>
+              <li><span class="top">Java</span><small>NPTEL</small></li>
+              <li><span class="top">iHub Divya Sampark</span><small>Certification</small></li>
+            </ul>
+          </div>
+        </div>
+        <h3 style="margin: 48px 0 12px; font-size: 1.5rem;">Sports</h3>
+        <p>Away from the screen, I play volleyball and table tennis, and I've taken part in inter-college competitions in both. Sport is where I practise teamwork and staying calm under pressure.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <div class="wrap">
+      <h2>Let's talk</h2>
+      <p>Open to internships, projects and conversations about building things. Email is the fastest way to reach me.</p>
+      <a class="mail" href="mailto:ankita61314@gmail.com">ankita61314@gmail.com</a>
+      <button type="button" class="btn btn-primary" data-resume>Download resume</button>
+      <p class="resume-status" id="resume-status" role="status" aria-live="polite"></p>
+      <ul class="contact-list" style="margin-top: 24px;">
+        <li><span>Phone</span><a href="tel:+918240247750">+91 82402 47750</a></li>
+        <li><span>GitHub</span><a href="https://github.com/ankita-kumari12" target="_blank" rel="noopener">github.com/ankita-kumari12</a></li>
+        <li><span>LinkedIn</span><a href="https://www.linkedin.com/in/ankita-kumari-7383782b4" target="_blank" rel="noopener">Ankita Kumari</a></li>
+        <li><span>Based in</span><span style="color: var(--hero-ink)">Purnia, Bihar</span></li>
+      </ul>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">Ankita Kumari, 2026</div>
+</footer>
+
+<script>
+  (function () {
+    var RESUME_B64 = "JVBERi0xLjQKJZOMi54gUmVwb3J0TGFiIEdlbmVyYXRlZCBQREYgZG9jdW1lbnQgKG9wZW5zb3VyY2UpCjEgMCBvYmoKPDwKL0YxIDIgMCBSIC9GMiAzIDAgUiAvRjMgNCAwIFIKPj4KZW5kb2JqCjIgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EgL0VuY29kaW5nIC9XaW5BbnNpRW5jb2RpbmcgL05hbWUgL0YxIC9TdWJ0eXBlIC9UeXBlMSAvVHlwZSAvRm9udAo+PgplbmRvYmoKMyAwIG9iago8PAovQmFzZUZvbnQgL0hlbHZldGljYS1Cb2xkIC9FbmNvZGluZyAvV2luQW5zaUVuY29kaW5nIC9OYW1lIC9GMiAvU3VidHlwZSAvVHlwZTEgL1R5cGUgL0ZvbnQKPj4KZW5kb2JqCjQgMCBvYmoKPDwKL0Jhc2VGb250IC9IZWx2ZXRpY2EtT2JsaXF1ZSAvRW5jb2RpbmcgL1dpbkFuc2lFbmNvZGluZyAvTmFtZSAvRjMgL1N1YnR5cGUgL1R5cGUxIC9UeXBlIC9Gb250Cj4+CmVuZG9iago1IDAgb2JqCjw8Ci9Db250ZW50cyA5IDAgUiAvTWVkaWFCb3ggWyAwIDAgNTk1LjI3NTYgODQxLjg4OTggXSAvUGFyZW50IDggMCBSIC9SZXNvdXJjZXMgPDwKL0ZvbnQgMSAwIFIgL1Byb2NTZXQgWyAvUERGIC9UZXh0IC9JbWFnZUIgL0ltYWdlQyAvSW1hZ2VJIF0KPj4gL1JvdGF0ZSAwIC9UcmFucyA8PAoKPj4gCiAgL1R5cGUgL1BhZ2UKPj4KZW5kb2JqCjYgMCBvYmoKPDwKL1BhZ2VNb2RlIC9Vc2VOb25lIC9QYWdlcyA4IDAgUiAvVHlwZSAvQ2F0YWxvZwo+PgplbmRvYmoKNyAwIG9iago8PAovQXV0aG9yIChBbmtpdGEgS3VtYXJpKSAvQ3JlYXRpb25EYXRlIChEOjIwMjYwOTIxMTUwMTM1KzAwJzAwJykgL0NyZWF0b3IgKFwodW5zcGVjaWZpZWRcKSkgL0tleXdvcmRzICgpIC9Nb2REYXRlIChEOjIwMjYwOTIxMTUwMTM1KzAwJzAwJykgL1Byb2R1Y2VyIChSZXBvcnRMYWIgUERGIExpYnJhcnkgLSBcKG9wZW5zb3VyY2VcKSkgCiAgL1N1YmplY3QgKFwodW5zcGVjaWZpZWRcKSkgL1RpdGxlIChBbmtpdGEgS3VtYXJpIC0gUmVzdW1lKSAvVHJhcHBlZCAvRmFsc2UKPj4KZW5kb2JqCjggMCBvYmoKPDwKL0NvdW50IDEgL0tpZHMgWyA1IDAgUiBdIC9UeXBlIC9QYWdlcwo+PgplbmRvYmoKOSAwIG9iago8PAovRmlsdGVyIFsgL0FTQ0lJODVEZWNvZGUgL0ZsYXRlRGVjb2RlIF0gL0xlbmd0aCAyODU2Cj4+CnN0cmVhbQpHYXVgVj8kazs4JyMpXHFSJmZpKjtdcUNAWV46TUNWRmJycD8hPm1BTXIiXmFOI0xBWUFOTUAobCZTJVIpMnVcU2BnXkpIYy1wJmNRPWYhQUgwOkc0IVooYkhvL2ZQRTdQaFJQNV8uS0A+NjhnQTAkTmJBQzNLLWYia2VvWEs+J2lCNUQ0UzBvUE1ibGkta0JDVDkrVmJEdS5CX0hzPT9IcUIpWzIhcDppWjEscl1vOUEhWGFIM2xbWyRacS1mIjQmRm89PHBsOTJfYisxWltfOlA1TjojOlY3Z1guaXJfRVVCJXFrOzo+YU1JJjRcQ1RJMT5pUzlCXEg8KGcmRSlEQjNcNGlvKmlkTCg2KidxOD1IRUopWi0lZD5vUSlBSVJzUi5waTs1TDg1WDxZJT40dEpTLWswXz9uc1IxP1NENFF0c2t0OTcpIXIjIzotPUYlWls0KzR1MUNBaFsha2E3ZmQ1aSFdWzZtUF0kOEdkIzBoXUNcajIhP246TGAkQU4hcVM3ZytSXUw8IWg+T25jNFEyWUxuQTdQP1ReVVIqKXJnRSglT1VdMHFCQGQxLGlGRUVaXTh0YSlaZURkWmhwRyNTLEhKdGdqM0BFJSNmKitGNCwzcDlVKEpOOWJPJjtFKEFCZVRKPVhIKSgzVlNSTWUuP14pWG45Z1AqYHI/Y2ZZXzVMO28ocmdsVDpZT2UpWG5INzQ6aCZoa1RGLVxHPVIvMlplLi47Wi1cbzlJO15bJmFdM3BqZFRhdW1pXj5yU3UlXFlEU2Q3bDVOT0RXamw6XzJPcGQ/ZTowSFJDU3BFOVkwYFhDLSUiK2pMLkBfcTQ/MzhbSTdnKWs7Nls9YmU7bi01TWo2PmNNUSNmb15lT1ZRRlYxLlFIYzM+KT5qamhLJyNfKlAlLlhAYzFARTZoTSM9KU1PPFZFWz9ScSgwVUA9OSldM0NIRCZSZHRVRDZRQmdiR2csWEtObEI6MiU1MykiX09cT2xVZ1RPNmpfKGhGLzFBRU5IS3VsWyMnIkhCMjNbVVFPN3A4R2tIZlhAWTQ2YmdGKzxOW11cajIiOGtsLWQyTmNNOSRgRj1Ia2E5O3A0VitCLVRodUU5amhob1A1RHE9dWFfI0Z0ZDgrTWZtbCVDSSo2N19gXl9WKF9fWGpkblEuNyJNVl4tNkFWNUwqZSVVPyhwO0pCN2w4ODJdYVRaVCtFYDw0RzBVYSo0M24+LFoiUi43XzdQanElVnJKdGUyOF4sJC4/RlJKb2hvdW0iXmtKYHM5LU9jRXJqT0pbV3NuQzRyJGVETChYYik+JWU1PHApN1Yka0RYVjBCLTIrKDI0aCg8ISVOKj5aSDEoVWxBTkpwWyIiS1xSbDVCJjdMKSgoJllpQS9sbksqZFBQRjtRN0FkNj1BJWFDcFc0cz4oLSIiIz5YREs4JzpxUnViRU5ETio1ckMmQGFiTSJuQUBmU1AwZ1MvQGNxIS9YXm0qXWJxYU4xQDBBQ2o+MyVINDNOZThFUXRoQiIsWy5yS0FCOClYU0ldclheLVlRbSglPjo9Tid0Xk41c0FkVVRwVVJDTCFYYCdCRj1oVFJEbz1CKWonaT1uMDtbbWlyWUpSI2AxPlxOTnRBa1BUSUVPL2Q/KzErKS8rMGohcnVQJ1dlNTApcjtMdCZFanMzXzhDZGw7RCMwWVIoRmNhWEUubFg/X2pmN2Naa3J1YDNHMCNBWGAtWkwyXl8pXFlOdUY3Q2xxNks1byFaTGY3YlImMjZGIWRbKU49Nytjbko7VjAvJ18oSThSW09AYTxTQ2Q9W2FcQ2FYSEhCbC1BNUs/XjclIXQiclp0QEZdJE1FRyQ2QWRka1FiTiJiamJdOXJ0V1ZHQ15AcjVoVC10ZTIsMkhfRGo6ZyhDaCE9PEpcZichXCMzNj81OzM4PysyTGI6PHU/ZnMuVittQU1qTmBFbT5WcXVgQyhHVCxIOVZ0ajk6PltZOTA6SiFjIVkjOiVyLmNWQzViSTpETSJ0aWQ4bXFGInJoYjEhNmJYb3AwcTVhUUNZZGM1XWQ+LWonPzFWRVJCKGNFV2g8VXQ8TWcuTFo9WUFsKSZcJFBtYGFsJDxaZC9EaGArTSxjRmlvKVctJFVgSCtIR1BJaVtdOjpfNm1hJ1IiJkNQT2oxZCpQLl4rNSlIIiFEMEJeMEIlMm5DRE9hJzA6JCJUbExxP1cnV1YvTy4mdWsscj1BNFFWMi1JYVFpVlo3dG8jQytFWzdGbkBLQS9ZSkIyKjtTTFpmUCVINVlmIjQpImcmZE8uJy9RLylyak8vQm1HNyxYXXQzSzNBQnJsMDE3aXRWQUxsKmVnPkxORT45a1YqZE5rXUIuJGxyL2ZXLkgnMS9rJ1s9WWBTPSUyMy80XURARltXOGtGOmEwPmk2VjE0aE9hZT5QJUwxKG9ZSEg5b1JyO2E2WiE4RmVCa2koQitAa011Rm9GOystW1hDN1VBOkddXmlyYmgwciFaRC9VYEJYbmdGJjorW0dnaE4oamRaVlo3SCstRD5URSw+IjkhJGNFVTJDMzEpZj5LI2JHcFxrITpjQUIsJSYsM3JZPVljPEJLMWc5OnNVYyRvLENWNkRNTS1NXzg5Pi1BSit0P0Q5Qzo2dXVNVmFPcjY7b1wnNEcqcShcSWdWL2tQWCkpcUJHOzBAb1JFMFVGKTs7YlZzPDwhYjo6RUBgJmxtMDs9VUVNIUg7O0k3aWl1JmpeaEckTWdMakZjRF9iSllgNClKbzEkLylzIkhKaDtAVjtfOksrJz9TYzVwclBANWNeOVlaUW5cb18xLyVzOWQkNChcZzBOMXFoQENpXDxHOk1mQGBeci5cTFBZOlZsKDBAPUtyNm9wRTpEJkBBO0FKIz1CI0I7OktZbkMjNTUpPWojI2htJ1M4SXNQb0hGW25dYihVNEY3RlAhbiVkOmU/ZFFQWmRkJUI0ZjNGdHBqXDxVPmVkOERoYyxIXmdKY1RKNEgyYjZkJCdpLChOVjp0KiQhI0s6TUtIS2pbbzBoS2slYT9xKT4pQTdHOXRPNW0vR1daZVJNOC9bOShcZyRVc3M4NGwlSmNhP0MlXFhBZzo0UnRLPmEyS0MlJCcyW1tjSkNscjlXUShAYzReREttTFNRTjBUby9JPTg3L0giZXE1cUg5dTlZXlJrOVIubUZadCRnVGwubChoLSlVVGNnb2BVOksmJVBtLUhJZjU9KS5DJVtCNUhwWTBQcDE5MTg+PmxXPENRQHFhTkZdWUslRSw1NENxbzVlMk1gJy8uMFgwImExamBkKGglUD5tPDFVOmJlJStNUTI8VElTJGRZPDYiT1NrO09mXWE0SE82M3NiWmIkU0tqJlFhO2VXalMyKzAuXFplL1M1O1M8Q2JUX2c9UGVrWDhrT1phV2ZMVEssKXJpcHMhWWlSOWRjTXNWPGtGKTQ9WDlFNElUVURGNlZWcCMuYGcmUlMuLVZFSVtudThZIltWRF07KyUrZyFxIisxImwwRGwoMy8rMk5wWltLQjdvJUEibVk0I2w3RkchYDkzU1NZaUpYKSQzWmxZSEVYT0lnM2AqdCdQMDsxMWJrUzZdamtubT1rK2dCNmVgcUg3MSMiW0FVY1p0QDFlRVlwN1k1SVxRJzItT3NER0ltXCNBOU4raVpBNCcxVVJmclFxQUxyMXEiJWBUNkFELSpJVTtAMmcwXlg0RnJQOj5jZz5uKE4+Qzslcys3LEFKKnQrNmBFRS8/WUwuck9yMi44LWpjOj5mO2pzZWVIQFZxaHFwMWRlTXVOZWBEalx1fj5lbmRzdHJlYW0KZW5kb2JqCnhyZWYKMCAxMAowMDAwMDAwMDAwIDY1NTM1IGYgCjAwMDAwMDAwNjEgMDAwMDAgbiAKMDAwMDAwMDExMiAwMDAwMCBuIAowMDAwMDAwMjE5IDAwMDAwIG4gCjAwMDAwMDAzMzEgMDAwMDAgbiAKMDAwMDAwMDQ0NiAwMDAwMCBuIAowMDAwMDAwNjQ5IDAwMDAwIG4gCjAwMDAwMDA3MTcgMDAwMDAgbiAKMDAwMDAwMTAwNiAwMDAwMCBuIAowMDAwMDAxMDY1IDAwMDAwIG4gCnRyYWlsZXIKPDwKL0lEIApbPGFhN2ZiNWVkM2VkNjNiOWM3MDEyMjNkNmQyMGZjNWM4PjxhYTdmYjVlZDNlZDYzYjljNzAxMjIzZDZkMjBmYzVjOD5dCiUgUmVwb3J0TGFiIGdlbmVyYXRlZCBQREYgZG9jdW1lbnQgLS0gZGlnZXN0IChvcGVuc291cmNlKQoKL0luZm8gNyAwIFIKL1Jvb3QgNiAwIFIKL1NpemUgMTAKPj4Kc3RhcnR4cmVmCjQwMTIKJSVFT0YK";
+    function toBlob() {
+      var bin = atob(RESUME_B64), bytes = new Uint8Array(bin.length);
+      for (var i = 0; i < bin.length; i++) bytes[i] = bin.charCodeAt(i);
+      return new Blob([bytes], { type: "application/pdf" });
+    }
+    var status = document.getElementById("resume-status");
+    function say(msg) { if (status) status.textContent = msg; }
+
+    async function download() {
+      var blob = toBlob();
+      try {
+        var dl = window.claude && window.claude.use ? await window.claude.use("downloads") : null;
+        if (dl) {
+          await dl.save({ filename: "Ankita_Kumari_Resume.pdf", data: blob });
+          say("Resume saved.");
+          return;
+        }
+      } catch (err) {
+        if (err && err.code === "declined") { say("Download cancelled."); return; }
+      }
+      // Fallback for when the page is hosted on its own site
+      try {
+        var url = URL.createObjectURL(blob);
+        var a = document.createElement("a");
+        a.href = url; a.download = "Ankita_Kumari_Resume.pdf";
+        document.body.appendChild(a); a.click(); a.remove();
+        setTimeout(function () { URL.revokeObjectURL(url); }, 4000);
+        say("Resume downloading.");
+      } catch (e2) {
+        say("Download isn't available here. Email me and I'll send my resume.");
+      }
+    }
+    document.querySelectorAll("[data-resume]").forEach(function (b) { b.addEventListener("click", download); });
+  })();
+</script>
+</body>
+</html>
